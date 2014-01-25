@@ -6,7 +6,7 @@
  * scene. Handy with `DontDestroyOnLoad()`.
  */
 
-class TwineScript : MonoBehaviour {
+class TwineScript extends MonoBehaviour {
   private var _instance : TwineScript;
 
   function Awake() {
