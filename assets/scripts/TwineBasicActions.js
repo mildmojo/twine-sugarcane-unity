@@ -7,7 +7,7 @@
  * `TwineScript` in each scene.
  */
 
-var _nextPassage = '';
+private var _nextPassage = '';
 
 // Change scenes
 function NewRoom(passageName : String) {
