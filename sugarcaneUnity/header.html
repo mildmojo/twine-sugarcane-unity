@@ -328,9 +328,7 @@ jQuery(function() {
         break;
     }
   });
-  // Calling this from within Twine page
-//  UnityObject.initPlugin(jQuery("#unityPlayer")[0], "webunity.unity3d");
-  });
+});
 -->
 </script>
 <script type="text/javascript">
@@ -360,19 +358,20 @@ Unity = {
     }
     return Unity._unity;
   }
-}
+};
+
+macros.unity_load = {
+  handler: function(place, macroName, params) {
+    UnityObject.initPlugin(jQuery("#unityPlayer")[0], params[0]);
+  }
+};
 
 macros.unity_send = {
   handler: function(place, macroName, params) {
     Unity.SendMessage(params[0], params[1]);
   }
-}
+};
 
-macros.unity_load = {
-  handler: function(place, macroName, params) {
-    UnityObject.initPlugin(jQuery("#unityPlayer")[0], pluginName);
-  }
-}
 </script>
 </head>
 <body>
