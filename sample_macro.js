@@ -34,7 +34,7 @@ postrender.overrideRoomLinks = function(div) {
     $el.on('unity_actions', function() {
       if (isRoom && haveUnity()) {
         state.display(emptyPassageName);
-        Unity.SendMessage('NewRoom', roomName);
+        Unity.SendMessage('NewRoom', roomName + '|' + passage.title);
       } else {
         state.display(passageName);
       }
@@ -53,7 +53,7 @@ function haveUnity() {
 function checkIsRoom(passage) {
   var isRoom = false;
   passage.tags.forEach(function(tag) {
-    if (tag === 'room') {
+    if (tag.match(/^room_/)) {
       isRoom = true;
     }
   });
