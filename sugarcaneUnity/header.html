@@ -356,6 +356,9 @@ Unity = {
     if (!Unity._unity) {
       Unity._unity = UnityObject.getUnity();
     }
+    if (!Unity._unity) {
+      return {SendMessage: function(){}};
+    }
     return Unity._unity;
   }
 };
@@ -371,8 +374,11 @@ macros.unity_send = {
     Unity.SendMessage(params[0], params[1]);
   }
 };
-
 </script>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="/client/microevent.js"></script>
+<script type="text/javascript" src="/client/tg_client.js"></script>
+<script type="text/javascript" src="/client/twine_bindings.js"></script>
 </head>
 <body>
 <ul id="sidebar">
